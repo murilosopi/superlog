@@ -1,6 +1,6 @@
 <template>
   <component :is="tag" class="titulo-principal" :class="classes">
-    {{ texto }}
+    <slot></slot>
   </component>
 </template>
 
@@ -11,40 +11,81 @@ export default {
       type: String,
       required: true,
     },
-    texto: String,
-
     // classes para estilização
     tamanho: {
-      default: "",
-      type: String,
+      default: 1,
+      type: Number,
     },
     variacao: {
-      default: "",
+      default: "escuro",
       type: String,
     },
   },
   data() {
     return {
-      classes: [this.tamanho, this.variacao].map((i) => `-${i}`)
-    }
+      tamanhos: [1, 2, 3, 4, 5, 6],
+      variacoes: ["escuro", "branco", "destaque"],
+    };
+  },
+  computed: {
+    classes() {
+      try {
+        if (this.tamanho && !this.tamanhos.includes(this.tamanho))
+          throw `Tamanho "${this.tamanho}" inválido`;
+
+        if (this.variacao && !this.variacoes.includes(this.variacao))
+          throw `Variação "${this.variacao}" inválida`;
+
+        return [`t${this.tamanho}`, this.variacao].map((i) =>
+          i ? `-${i}` : false
+        );
+      } catch (e) {
+        throw new TypeError(e);
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
 .titulo-principal {
-  color: var(--branco);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 2.5em;
 }
 
 .titulo-principal.-destaque {
   color: var(--destaque);
 }
 
+.titulo-principal.-escuro {
+  color: var(--escuro);
+}
 
-.titulo-principal.-grande {
-  font-size: 4.5em;
+.titulo-principal.-branco {
+  color: var(--branco);
+}
+
+.titulo-principal.-t1 {
+  font-size: 4.25em;
+}
+
+.titulo-principal.-t2 {
+  font-size: 3.75em;
+}
+
+.titulo-principal.-t3 {
+  font-size: 3.25em;
+}
+
+.titulo-principal.-t4 {
+  font-size: 2.75em;
+}
+
+.titulo-principal.-t5 {
+  font-size: 2.5em;
+}
+
+.titulo-principal.-t6 {
+  font-size: 1.75em;
 }
 </style>
