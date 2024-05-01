@@ -1,9 +1,9 @@
 import VueRouter from 'vue-router';
 
-const HomePage = () => import('../pages/HomePage.vue');
+const PaginaInicial = () => import('../pages/PaginaInicial.vue');
 
 const routes = [
-    { path: '/', component: HomePage }
+    { path: '/', component: PaginaInicial }
 ];
 
 export default new VueRouter({
