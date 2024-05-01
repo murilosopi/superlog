@@ -1,27 +1,31 @@
 <template>
   <div class="cabecalho-principal-container">
     <header class="cabecalho-principal" :class="{ flutuante }">
-    <TituloPrincipal tag="h1" variacao="branco" :tamanho="5">Super Log</TituloPrincipal>
-    <nav class="navegacao">
-      <ul class="menu">
-        <li class="item">
-          <a class="link" href="#">Sobre</a>
-        </li>
-        <li class="item">
-          <a class="link" href="#">Serviços</a>
-        </li>
-        <li class="item">
-          <a class="link" href="#">Rastrear</a>
-        </li>
-        <li class="item">
-          <a class="link" href="#">Contato</a>
-        </li>
-        <li class="item">
-          <BotaoPrincipal href="#" :link="true">Área do Cliente</BotaoPrincipal>
-        </li>
-      </ul>
-    </nav>
-  </header>
+      <TituloPrincipal tag="h1" variacao="branco" :tamanho="5"
+        >Super Log</TituloPrincipal
+      >
+      <nav class="navegacao">
+        <ul class="menu">
+          <li class="item">
+            <a class="link" href="#sobre">Sobre</a>
+          </li>
+          <li class="item">
+            <a class="link" href="#servicos">Serviços</a>
+          </li>
+          <li class="item">
+            <a class="link" href="#rastreamento">Rastrear</a>
+          </li>
+          <li class="item">
+            <a class="link" href="#contato">Contato</a>
+          </li>
+          <li class="item">
+            <BotaoPrincipal href="#area-do-cliente" :link="true"
+              >Área do Cliente</BotaoPrincipal
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
   </div>
 </template>
 
@@ -30,7 +34,7 @@ import BotaoPrincipal from "@/components/common/BotaoPrincipal.vue";
 import TituloPrincipal from "@/components/common/TituloPrincipal.vue";
 export default {
   props: {
-    flutuante: Boolean
+    flutuante: Boolean,
   },
   components: {
     TituloPrincipal,
