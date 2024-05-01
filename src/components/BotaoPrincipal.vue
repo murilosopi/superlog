@@ -24,7 +24,7 @@ export default {
     border-radius: .75rem;
     display: inline-block;
     padding: .5rem 1.5rem;
-    transition: var(--dynamic);
+    transition: var(--dinamico);
   }
 
   .botao-principal:hover {

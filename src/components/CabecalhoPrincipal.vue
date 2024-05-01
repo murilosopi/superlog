@@ -51,7 +51,7 @@ export default {
   font-weight: bold;
   font-size: 1em;
   color: var(--branco);
-  transition: var(--dynamic);
+  transition: var(--dinamico);
 }
 
 .link:hover {
