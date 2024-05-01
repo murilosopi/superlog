@@ -2,10 +2,7 @@
 
 *, html {
     font: 400 16px 'Poppins', sans-serif;
-}
-
-body {
-    background-image: url(../assets/img/banners/1.png);
+    box-sizing: border-box;
 }
 
 :root {
@@ -13,6 +10,7 @@ body {
     --destaque: #D74802;
     --destaque-claro: #FF8000;
     --destaque-pastel: #F4A44E;
-
+    --escuro: #151F20;
+    
     --dinamico: .1s ease-in-out;
 }
