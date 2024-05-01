@@ -16,18 +16,18 @@ export default {
 </script>
 
 <style scoped>
-  .botao-principal {
-    color: var(--branco);
-    background-color: var(--destaque);
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: .75rem;
-    display: inline-block;
-    padding: .5rem 1.5rem;
-    transition: var(--dinamico);
-  }
+.botao-principal {
+  color: var(--branco);
+  background-color: var(--destaque);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0.75rem;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  transition: var(--dinamico);
+}
 
-  .botao-principal:hover {
-    transform: scale(1.01);
-  }
+.botao-principal:hover {
+  transform: scale(1.01);
+}
 </style>
