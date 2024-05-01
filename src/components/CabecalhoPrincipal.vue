@@ -1,45 +1,59 @@
 <template>
-  <header class="cabecalho-principal">
-    <TituloPrincipal tag="h1" texto="Super Log" />
+  <div class="cabecalho-principal-container">
+    <header class="cabecalho-principal" :class="{ flutuante }">
+    <TituloPrincipal tag="h1" variacao="branco" :tamanho="5">Super Log</TituloPrincipal>
     <nav class="navegacao">
       <ul class="menu">
         <li class="item">
-          <a class="link" href="">Sobre</a>
+          <a class="link" href="#">Sobre</a>
         </li>
         <li class="item">
-          <a class="link" href="">Serviços</a>
+          <a class="link" href="#">Serviços</a>
         </li>
         <li class="item">
-          <a class="link" href="">Rastrear</a>
+          <a class="link" href="#">Rastrear</a>
         </li>
         <li class="item">
-          <a class="link" href="">Contato</a>
+          <a class="link" href="#">Contato</a>
         </li>
         <li class="item">
-          <BotaoPrincipal href="" :link="true">Área do Cliente</BotaoPrincipal>
+          <BotaoPrincipal href="#" :link="true">Área do Cliente</BotaoPrincipal>
         </li>
       </ul>
     </nav>
   </header>
+  </div>
 </template>
 
 <script>
-import BotaoPrincipal from './BotaoPrincipal.vue';
+import BotaoPrincipal from "./BotaoPrincipal.vue";
 import TituloPrincipal from "./TituloPrincipal.vue";
 export default {
+  props: {
+    flutuante: Boolean
+  },
   components: {
     TituloPrincipal,
-    BotaoPrincipal
+    BotaoPrincipal,
   },
 };
 </script>
 
 <style>
+.cabecalho-principal-container {
+  position: relative;
+}
+
 .cabecalho-principal {
   background-color: rgba(19, 19, 19, 50%);
   display: grid;
   grid-template-columns: 1fr 3fr;
   padding: 1.5rem;
+}
+
+.cabecalho-principal.flutuante {
+  position: absolute;
+  width: 100%;
 }
 
 .navegacao {
