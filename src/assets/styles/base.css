@@ -11,10 +11,15 @@
     --destaque-claro: #FF8000;
     --destaque-pastel: #F4A44E;
     --escuro: #151F20;
+    --secundario: #CECECE;
     
     --dinamico: .1s ease-in-out;
 }
 
 body {
     background-color: var(--branco);
+}
+
+p {
+    margin-bottom: 1rem;
 }
