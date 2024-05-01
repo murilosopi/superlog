@@ -12,6 +12,7 @@ export default {
 </script>
 
 <style>
-@import url('styles/reset.css');
-@import url('styles/base.css');
+@import url('@/assets/styles/reset.css');
+@import url('@/assets/styles/base.css');
+@import url('@/libs/fontawesome/css/all.css');
 </style>
