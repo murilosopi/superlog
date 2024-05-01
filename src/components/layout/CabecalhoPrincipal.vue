@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import BotaoPrincipal from "./BotaoPrincipal.vue";
-import TituloPrincipal from "./TituloPrincipal.vue";
+import BotaoPrincipal from "@/components/common/BotaoPrincipal.vue";
+import TituloPrincipal from "@/components/common/TituloPrincipal.vue";
 export default {
   props: {
     flutuante: Boolean
