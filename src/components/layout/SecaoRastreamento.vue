@@ -76,4 +76,10 @@ export default {
   align-items: end;
   gap: 1rem;
 }
+
+@media (max-width: 768px) {
+  .container-form {
+    grid-template-columns: auto;
+  }
+}
 </style>

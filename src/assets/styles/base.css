@@ -12,6 +12,8 @@
     --destaque-pastel: #F4A44E;
     --escuro: #151F20;
     --secundario: #CECECE;
+
+    --preto-50: rgba(19, 19, 19, 50%);
     
     --dinamico: .1s ease-in-out;
 }

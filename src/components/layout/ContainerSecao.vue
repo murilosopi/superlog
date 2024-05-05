@@ -16,8 +16,9 @@ export default {
       return this.img
         ? {
             backgroundImage: `url(${this.img})`,
-            backgroundSize: 'cover',
-            backgroundAttachment: 'fixed',
+            backgroundSize: "cover",
+            backgroundAttachment: "fixed",
+            backgroundPosition: "center"
           }
         : false;
     },
@@ -31,5 +32,15 @@ export default {
   min-height: 100vh;
   display: flex;
   align-items: center;
+}
+.container .conteudo {
+  width: 1440px;
+  margin: auto;
+}
+
+@media (max-width: 1440px) {
+  .container .conteudo {
+    width: 100%;
+  }
 }
 </style>

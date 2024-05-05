@@ -88,4 +88,30 @@ export default {
 .titulo-principal.-t6 {
   font-size: 1.75em;
 }
+
+@media (max-width: 1024px) {
+  .titulo-principal.-t1 {
+    font-size: calc(1em + 6vw);
+  }
+
+  .titulo-principal.-t2 {
+    font-size: calc(1em + 5vw);
+  }
+
+  .titulo-principal.-t3 {
+    font-size: calc(1em + 4vw);
+  }
+
+  .titulo-principal.-t4 {
+    font-size: calc(1em + 3vw);
+  }
+
+  .titulo-principal.-t5 {
+    font-size: calc(1em + 2vw);
+  }
+
+  .titulo-principal.-t6 {
+    font-size: calc(1em + 1vw);
+  }
+}
 </style>
