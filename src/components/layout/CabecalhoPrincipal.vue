@@ -5,16 +5,27 @@
         >Super Log</TituloPrincipal
       >
       <nav class="navegacao" ref="nav">
-        <i ref="togglerMenu" class="toggler" :class="menuAberto ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'" @click="toggleMenu" @focusout="menuAberto = false" @blur="menuAberto = false"></i>
-        <ul class="menu" ref="menu" :class="{ aberto: menuAberto}" @focusout="menuAberto = false" @blur="menuAberto = false">
+        <span
+          ref="togglerMenu"
+          class="toggler"
+          @click="toggleMenu"
+          @focusout="menuAberto = false"
+          @blur="menuAberto = false"
+        >
+          <i :class="menuAberto ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"></i>
+        </span>
+        <ul
+          class="menu"
+          ref="menu"
+          :class="{ aberto: menuAberto }"
+          @focusout="menuAberto = false"
+          @blur="menuAberto = false"
+        >
           <li class="item">
-            <a class="link" href="#sobre">Sobre</a>
+            <a class="link" href="#rastreamento">Rastrear</a>
           </li>
           <li class="item">
             <a class="link" href="#servicos">Serviços</a>
-          </li>
-          <li class="item">
-            <a class="link" href="#rastreamento">Rastrear</a>
           </li>
           <li class="item">
             <a class="link" href="#contato">Contato</a>
@@ -43,19 +54,19 @@ export default {
   },
   data() {
     return {
-      menuAberto: false
-    }
+      menuAberto: false,
+    };
   },
   methods: {
     toggleMenu() {
       this.menuAberto = !this.menuAberto;
-    }
+    },
   },
   mounted() {
-    document.addEventListener('click', e => {
+    document.addEventListener("click", (e) => {
       if (!this.$refs.nav.contains(e.target)) this.menuAberto = false;
     });
-  }
+  },
 };
 </script>
 
@@ -110,7 +121,6 @@ export default {
 }
 
 @media (max-width: 872px) {
-
   .navegacao {
     display: flex;
     align-items: flex-end;
@@ -128,7 +138,7 @@ export default {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 80%;
+    top: 110%;
     width: max-content;
     height: max-content;
     background-color: var(--preto-50);
