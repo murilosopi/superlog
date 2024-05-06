@@ -1,5 +1,9 @@
 <template>
-  <component :is="link ? 'a' : 'button'" class="botao-principal">
+  <component
+    :is="link ? 'a' : 'button'"
+    class="botao-principal"
+    @click="(e) => $emit('click', e)"
+  >
     <slot></slot>
   </component>
 </template>
