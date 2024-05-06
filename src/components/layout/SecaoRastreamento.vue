@@ -74,7 +74,6 @@ export default {
   display: grid;
   grid-template-columns: 1.5fr 2fr 1.25fr;
   align-items: end;
-  gap: 1rem;
 }
 
 @media (max-width: 768px) {
