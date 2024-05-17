@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      tamanhos: [1, 2, 3, 4, 5, 6],
+      tamanhos: [1, 2, 3, 4, 5, 6, 7],
       variacoes: ["escuro", "branco", "destaque"],
     };
   },
@@ -89,6 +89,10 @@ export default {
   font-size: 1.75em;
 }
 
+.titulo-principal.-t7 {
+  font-size: 1.5em;
+}
+
 @media (max-width: 1024px) {
   .titulo-principal.-t1 {
     font-size: calc(1em + 6vw);
@@ -112,6 +116,10 @@ export default {
 
   .titulo-principal.-t6 {
     font-size: calc(1em + 1vw);
+  }
+
+  .titulo-principal.-t7 {
+    font-size: 1em;
   }
 }
 </style>
