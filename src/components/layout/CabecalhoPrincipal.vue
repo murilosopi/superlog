@@ -1,8 +1,14 @@
 <template>
   <div class="cabecalho-principal-container">
     <header class="cabecalho-principal" :class="{ flutuante }">
-      <TituloPrincipal tag="h1" variacao="branco" :tamanho="5"
-        >Super Log</TituloPrincipal
+      <TituloPrincipal 
+        tag="h1" 
+        variacao="branco" 
+        :tamanho="5"
+      >
+        <img class="logo" :src="require('@/assets/img/logos/logo.svg')" alt="Logo da Super Log: caminhão laranja">
+        Super Log
+      </TituloPrincipal
       >
       <nav class="navegacao" ref="nav">
         <span
@@ -70,7 +76,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .cabecalho-principal-container {
   position: relative;
 }
@@ -85,6 +91,11 @@ export default {
 .cabecalho-principal.flutuante {
   position: absolute;
   width: 100%;
+}
+
+.logo {
+  width: 170px;
+  vertical-align: middle;
 }
 
 .navegacao {
@@ -118,6 +129,12 @@ export default {
   cursor: pointer;
   font-size: 1.6rem;
   color: var(--branco);
+}
+
+@media (max-width: 1024px) {
+.logo {
+  display: none;
+}
 }
 
 @media (max-width: 872px) {
