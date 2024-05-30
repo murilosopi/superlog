@@ -5,7 +5,7 @@ class Helper
 {
     public static function debug($dados) {
         echo '<pre>';
-        print_r($dados);
+        var_dump($dados);
         echo '</pre>';
     }
 }

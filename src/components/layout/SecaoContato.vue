@@ -6,32 +6,11 @@
     </TituloPrincipal>
 
     <ContainerForm @submit="enviarContato" ref="form">
-      <CampoTexto
-        nome="Nome"
-        name="nome"
-        id="nome-contato"
-        v-model="contato.nome"
-      />
-      <CampoTexto
-        nome="E-mail"
-        name="email"
-        id="email-contato"
-        v-model="contato.email"
-      />
-      <CampoTexto
-        nome="Assunto"
-        name="assunto"
-        id="assunto-contato"
-        v-model="contato.assunto"
-      />
-      <CampoTexto
-        nome="Mensagem"
-        name="mensagem"
-        id="mensagem-contato"
-        type="textarea"
-        :rows="8"
-        v-model="contato.mensagem"
-      />
+      <CampoTexto nome="Nome" name="nome" id="nome-contato" v-model="contato.nome" />
+      <CampoTexto nome="E-mail" name="email" id="email-contato" v-model="contato.email" />
+      <CampoTexto nome="Assunto" name="assunto" id="assunto-contato" v-model="contato.assunto" />
+      <CampoTexto nome="Mensagem" name="mensagem" id="mensagem-contato" type="textarea" :rows="8"
+        v-model="contato.mensagem" />
     </ContainerForm>
 
     <div class="grupo-botoes">
@@ -74,12 +53,25 @@ export default {
     };
   },
   methods: {
-    enviarContato() {
+    async enviarContato() {
       if (Object.values(this.contato).some((valor) => !valor)) {
         Swal.fire("Atenção", "Preencha todos os campos!", "warning");
         return false;
       }
-      Swal.fire("Sucesso", "Aguarde pela resposta em seu e-mail!", "success");
+
+      const fetch = response => {
+        const { sucesso = false, mensagem = 'Ocorreu um erro ao realizar o envio do e-mail, tente novamente mais tarde...' } = response.data;
+        Swal.fire({
+          title: sucesso ? "Sucesso" : "Ops!", 
+          text: mensagem,
+          icon: sucesso ? "success": "error"
+        });
+      }
+
+      this.$http.post('/contato/enviar-email', this.contato)
+        .catch(fetch)
+        .then(fetch);
+
       this.limpar();
       return true;
     },
@@ -111,12 +103,15 @@ export default {
   .campo-texto:nth-child(1) {
     grid-area: nome;
   }
+
   .campo-texto:nth-child(2) {
     grid-area: email;
   }
+
   .campo-texto:nth-child(3) {
     grid-area: assunto;
   }
+
   .campo-texto:nth-child(4) {
     grid-area: mensagem;
   }

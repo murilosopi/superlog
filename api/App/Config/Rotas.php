@@ -2,6 +2,7 @@
 
 namespace App\Config;
 
+use App\Utils\Helper;
 use App\Utils\Response;
 
 class Rotas
@@ -9,7 +10,7 @@ class Rotas
     public function __construct()
     {
         $rotas = $this->iniciarRotas();
-        $uri = $_SERVER['REQUEST_URI'];
+        $uri = $_SERVER['PATH_INFO'];
 
         if (!isset($rotas[$uri])) Response::NaoEncontrado('Rota não encontrada');
 
@@ -37,5 +38,6 @@ class Rotas
         
         $controller = new $classeController;
         $controller->$action();
+        json_decode(file_get_contents('php://input'));
     }
 }
