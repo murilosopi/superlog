@@ -6,72 +6,42 @@
         variacao="branco" 
         :tamanho="5"
       >
-        <img class="logo" :src="require('@/assets/img/logos/logo.svg')" alt="Logo da Super Log: caminhão laranja">
-        Super Log
-      </TituloPrincipal
-      >
-      <nav class="navegacao" ref="nav">
-        <span
-          ref="togglerMenu"
-          class="toggler"
-          @click="toggleMenu"
-          @focusout="menuAberto = false"
-          @blur="menuAberto = false"
-        >
-          <i :class="menuAberto ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"></i>
-        </span>
-        <ul
-          class="menu"
-          ref="menu"
-          :class="{ aberto: menuAberto }"
-          @focusout="menuAberto = false"
-          @blur="menuAberto = false"
-        >
-          <li class="item">
-            <a class="link" href="#rastreamento">Rastrear</a>
-          </li>
-          <li class="item">
-            <a class="link" href="#servicos">Serviços</a>
-          </li>
-          <li class="item">
-            <a class="link" href="#contato">Contato</a>
-          </li>
-          <li class="item">
-            <BotaoPrincipal href="#area-do-cliente" :link="true"
-              >Área do Cliente</BotaoPrincipal
-            >
-          </li>
-        </ul>
-      </nav>
+        <img class="logo" :src="require('@/assets/img/logos/logo-minimalista.svg')" alt="Logo da Super Log: caminhão laranja">
+        <span class="texto">Super Log</span>
+      </TituloPrincipal>
+      <MenuSuspenso :responsivo="true">
+        <ItemMenu href="#rastreamento" @click.native="closeMenu">Rastrear</ItemMenu>
+        <ItemMenu href="#servicos" @click.native="closeMenu">Serviços</ItemMenu>
+        <ItemMenu href="#contato" @click.native="closeMenu">Contato</ItemMenu>
+        <ItemMenu :custom="true">
+          <MenuSuspenso :custom-toggler="true">
+            <BotaoPrincipal slot="toggler">Acesso</BotaoPrincipal>
+            <template>
+              <ItemMenu href="https://logisticaerp.sylog.com.br/" @click.native="closeMenu">Colaborador</ItemMenu>
+              <ItemMenu href="#cliente" @click.native="closeMenu">Cliente</ItemMenu>
+            </template>
+          </MenuSuspenso>
+        </ItemMenu>
+      </MenuSuspenso>
     </header>
   </div>
 </template>
 
 <script>
-import BotaoPrincipal from "@/components/common/BotaoPrincipal.vue";
 import TituloPrincipal from "@/components/common/TituloPrincipal.vue";
+import MenuSuspenso from "@/components/common/MenuSuspenso.vue";
+import ItemMenu from "@/components/common/ItemMenu.vue";
+import BotaoPrincipal from "@/components/common/BotaoPrincipal.vue";
+
 export default {
   props: {
     flutuante: Boolean,
   },
   components: {
-    TituloPrincipal,
     BotaoPrincipal,
-  },
-  data() {
-    return {
-      menuAberto: false,
-    };
-  },
-  methods: {
-    toggleMenu() {
-      this.menuAberto = !this.menuAberto;
-    },
-  },
-  mounted() {
-    document.addEventListener("click", (e) => {
-      if (!this.$refs.nav.contains(e.target)) this.menuAberto = false;
-    });
+    ItemMenu,
+    MenuSuspenso,
+    TituloPrincipal,
   },
 };
 </script>
@@ -94,78 +64,17 @@ export default {
 }
 
 .logo {
-  width: 170px;
+  width: 125px;
   vertical-align: middle;
 }
 
-.navegacao {
-  margin-left: auto;
-}
-
-.link {
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1em;
-  color: var(--branco);
-  transition: var(--dinamico);
-}
-
-.link:hover {
-  color: var(--destaque);
-}
-
-.menu {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  gap: 1rem;
-}
-
-.toggler {
+.texto {
   display: none;
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 1.6rem;
-  color: var(--branco);
-}
-
-@media (max-width: 1024px) {
-.logo {
-  display: none;
-}
 }
 
 @media (max-width: 872px) {
-  .navegacao {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-direction: column;
-    text-align: right;
-    position: relative;
-  }
-
-  .menu {
-    display: none;
-  }
-
-  .menu.aberto {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 110%;
-    width: max-content;
-    height: max-content;
-    background-color: var(--preto-50);
-    padding: 1rem;
-    border-radius: 5px;
-  }
-
-  .toggler {
-    display: block;
-    margin-left: auto;
+  .logo {
+    width: 100px;
   }
 }
 </style>
